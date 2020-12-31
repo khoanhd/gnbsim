@@ -4,17 +4,19 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"github.com/hhorai/gnbsim/encoding/gtp"
-	"github.com/hhorai/gnbsim/encoding/nas"
-	"github.com/hhorai/gnbsim/encoding/ngap"
-	"github.com/ishidawataru/sctp"
-	"github.com/vishvananda/netlink"
-	"github.com/wmnsk/go-gtp/gtpv1"
+	"gnbsim/encoding/nas"
 	"log"
 	"net"
 	"net/http"
 	"strings"
 	"time"
+
+	"gnbsim/encoding/gtp"
+	"gnbsim/encoding/ngap"
+
+	"github.com/ishidawataru/sctp"
+	"github.com/vishvananda/netlink"
+	"github.com/wmnsk/go-gtp/gtpv1"
 )
 
 type testSession struct {
