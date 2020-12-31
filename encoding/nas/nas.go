@@ -1025,7 +1025,7 @@ type FiveGSMobileIDSUCI struct {
 	routingIndicator       [2]uint8
 	protectionScheme       uint8
 	homeNetworkPublicKeyID uint8
-	schemeOutput           [5]uint8
+	schemeOutput           [6]uint8
 }
 
 func (ue *UE) enc5GSMobileIDTypeSUCI() (pdu []byte) {
@@ -1044,6 +1044,7 @@ func (ue *UE) enc5GSMobileIDTypeSUCI() (pdu []byte) {
 	f.routingIndicator = encRoutingIndicator(ue.RoutingIndicator)
 	f.protectionScheme = encProtectionScheme(ue.ProtectionScheme)
 	f.homeNetworkPublicKeyID = 0
+	fmt.Println("[DEBUG]",ue.MSIN);
 	f.schemeOutput = encSchemeOutput(ue.MSIN)
 
 	data := new(bytes.Buffer)
@@ -1146,8 +1147,10 @@ func encProtectionScheme(profile string) (p uint8) {
 	return
 }
 
-func encSchemeOutput(msin string) (so [5]byte) {
+func encSchemeOutput(msin string) (so [6]byte) {
+	fmt.Println("[DEBUG]", Str2BCD(msin));
 	for i, v := range Str2BCD(msin) {
+		fmt.Println("[DEBUG]",i,v);
 		so[i] = v
 	}
 	return

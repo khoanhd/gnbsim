@@ -4,15 +4,15 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"gnbsim/encoding/nas"
+	"github.com/hhorai/gnbsim/encoding/nas"
 	"log"
 	"net"
 	"net/http"
 	"strings"
 	"time"
 
-	"gnbsim/encoding/gtp"
-	"gnbsim/encoding/ngap"
+	"github.com/hhorai/gnbsim/encoding/gtp"
+	"github.com/hhorai/gnbsim/encoding/ngap"
 
 	"github.com/ishidawataru/sctp"
 	"github.com/vishvananda/netlink"
